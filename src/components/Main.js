@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
-import {View, Text, ActivityIndicator} from 'react-native';
+import {View, ActivityIndicator} from 'react-native';
+import CurrentView from './CurrentView';
 import {currentWeatherAPI, fiveDayForecastAPI} from '../api/api';
 import styles from '../styles';
 
@@ -8,52 +9,40 @@ class Main extends PureComponent {
     isLoaded: false,
     currentWeather: undefined,
     forecast: undefined,
-    error: undefined,
+    showCurrent: true,
+    showDetailed: false,
   };
 
   componentDidMount() {
-    fetch(currentWeatherAPI)
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            currentWeather: result,
-          });
-        },
-
-        error => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        },
-      );
-
-    fetch(fiveDayForecastAPI)
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            forecast: result.list,
-          });
-        },
-
-        error => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        },
-      );
+    const toFetch = [currentWeatherAPI, fiveDayForecastAPI];
+    Promise.all(toFetch.map(item => fetch(item).then(res => res.json()))).then(
+      result => {
+        this.setState({
+          currentWeather: result[0],
+          forecast: result[1].list,
+          isLoaded: true,
+        });
+      },
+    );
   }
 
   render() {
-    console.log('this ', this.state);
+    const {
+      isLoaded,
+      currentWeather,
+      forecast,
+      showCurrent,
+      showDetailed,
+    } = this.state;
     return (
       <View style={styles.f1}>
-        <Text>Hi</Text>
+        {!isLoaded ? (
+          <View style={styles.centeredContainer}>
+            <ActivityIndicator size="large" color="#1EA9F6" />
+          </View>
+        ) : (
+          <CurrentView currentWeather={currentWeather} />
+        )}
       </View>
     );
   }
