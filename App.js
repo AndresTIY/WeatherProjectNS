@@ -6,23 +6,17 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
-import {SafeAreaView, ScrollView, View, Text, StatusBar} from 'react-native';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import styles from './src/styles';
+import Main from './src/components/Main';
 
 const App = () => {
   return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView />
-    </Fragment>
+    <SafeAreaView style={styles.f1}>
+      <Main />
+    </SafeAreaView>
   );
 };
 
