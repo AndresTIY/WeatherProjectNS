@@ -36,14 +36,12 @@ const styles = StyleSheet.create({
   },
   currentWeatherLeftContainer: {
     flex: 1,
-    // borderColor: 'red',
-    // borderWidth: 1,
     justifyContent: 'space-between',
   },
   currentWeatherRightContainer: {
     flex: 1,
-    borderColor: 'yellow',
-    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   currentWeatherTextPaddingSm: {
     paddingLeft: 5,
@@ -66,6 +64,11 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 60,
     fontFamily: 'Arial',
+  },
+  currentWeatherImage: {
+    height: 120,
+    width: 120,
+    // resizeMode: 'cover',
   },
 });
 
