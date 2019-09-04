@@ -14,7 +14,7 @@ import Main from './src/components/Main';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.f1}>
+    <SafeAreaView style={styles.mainContainer}>
       <Main />
     </SafeAreaView>
   );
