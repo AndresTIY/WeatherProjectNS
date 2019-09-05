@@ -83,9 +83,9 @@ class Main extends PureComponent {
           />
         )}
         {showDetail && (
-          <DetailView
-            detailViewItems={detailViewItems}
-            handleForecastPress={this.handleForecastPress}
+          <CurrentDetailView
+            currentWeather={detailViewItems}
+            handleCurrentPress={this.handleForecastPress}
           />
         )}
       </View>
