@@ -80,6 +80,7 @@ class Main extends PureComponent {
           <CurrentDetailView
             handleCurrentPress={this.handleCurrentPress}
             currentWeather={currentWeather}
+            isToday
           />
         )}
         {showDetail && (

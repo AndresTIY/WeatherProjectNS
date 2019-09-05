@@ -5,7 +5,7 @@ import styles from '../styles';
 import {Header} from '.';
 
 const CurrentDetailView = props => {
-  const {handleCurrentPress, currentWeather} = props;
+  const {handleCurrentPress, currentWeather, isToday} = props;
   const {main, dt: timestamp, weather, wind} = currentWeather;
   const {speed, deg} = wind;
   const [{main: current, icon}] = weather;
@@ -17,7 +17,7 @@ const CurrentDetailView = props => {
   };
   const {max, min, pressure} = roundIt;
 
-  const {day, month} = convertTimestamp(timestamp);
+  const {day, month, dayOfWeek} = convertTimestamp(timestamp);
   const degreeSymbol = String.fromCharCode(176);
   const direction = convertDegree(deg);
 
@@ -28,7 +28,9 @@ const CurrentDetailView = props => {
       <View style={styles.currentDetailContainer}>
         <View style={styles.currentDetailLeftContainer}>
           <View>
-            <Text style={styles.currentDetailWeatherTextSm}>Today</Text>
+            <Text style={styles.currentDetailWeatherTextSm}>
+              {isToday ? 'Today' : dayOfWeek}
+            </Text>
             <Text style={styles.currentDetailWeatherTextSm}>
               {month},{day}
             </Text>
