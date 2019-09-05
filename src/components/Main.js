@@ -28,7 +28,6 @@ class Main extends PureComponent {
   }
 
   handleForecastPress = item => {
-    console.log('ITE', item);
     this.setState(prevState => ({
       showDetail: !prevState.showDetail,
       detailViewItems: item ? item : [],
@@ -45,6 +44,8 @@ class Main extends PureComponent {
     <ListItem onPress={() => this.handleForecastPress(item)} data={item} />
   );
 
+  _keyExtractor = item => item.dt.toString();
+
   render() {
     const {
       isLoaded,
@@ -54,7 +55,6 @@ class Main extends PureComponent {
       showDetail,
       detailViewItems,
     } = this.state;
-    console.log('forecast', forecast);
     return (
       <View style={styles.f1}>
         {!isLoaded && (
@@ -72,6 +72,7 @@ class Main extends PureComponent {
               data={forecast}
               extraData={this.state}
               renderItem={this._renderItem}
+              keyExtractor={this._keyExtractor}
             />
           </Fragment>
         )}

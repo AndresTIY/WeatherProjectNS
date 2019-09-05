@@ -1,6 +1,5 @@
 const convertTimestamp = timestamp => {
   const date = new Date(timestamp * 1000);
-  console.log('');
   let day = date.getUTCDate();
 
   const monthPairs = {

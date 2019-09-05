@@ -27,14 +27,13 @@ const CurrentDetailView = props => {
 
       <View style={styles.currentDetailContainer}>
         <View style={styles.currentDetailLeftContainer}>
-          {/* TIME */}
           <View>
             <Text style={styles.currentDetailWeatherTextSm}>Today</Text>
             <Text style={styles.currentDetailWeatherTextSm}>
               {month},{day}
             </Text>
           </View>
-          {/* TEMP */}
+
           <View style={styles.aCenter}>
             <Text style={styles.currentDetailWeatherTextLrg}>
               {max}
@@ -45,7 +44,7 @@ const CurrentDetailView = props => {
               {degreeSymbol}
             </Text>
           </View>
-          {/* DEtAILS */}
+
           <View>
             <Text style={styles.currentDetailWeatherTextSm}>
               Humidity: {humidity}

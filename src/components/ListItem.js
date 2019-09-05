@@ -7,7 +7,6 @@ const ListItem = props => {
   const {data, onPress} = props;
   const {weather, dt: timestamp, main} = data;
   const [{main: current, icon}] = weather;
-  console.log('p', data, icon);
   const {dayOfWeek} = convertTimestamp(timestamp);
   const {temp_min, temp_max} = main;
   const roundIt = {min: Math.round(temp_min), max: Math.round(temp_max)};

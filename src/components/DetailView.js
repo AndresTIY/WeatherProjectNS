@@ -31,7 +31,7 @@ const DetailView = props => {
           <View>
             <Text style={styles.currentDetailWeatherTextSm}>{dayOfWeek}</Text>
             <Text style={styles.currentDetailWeatherTextSm}>
-              {month},{day}
+              {month} {day}
             </Text>
           </View>
           {/* TEMP */}
