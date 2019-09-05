@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blue,
     paddingTop: 20,
     paddingBottom: 30,
-    paddingLeft: 60,
+    paddingLeft: 40,
+    // paddingLeft: 60,
     paddingRight: 20,
   },
   currentWeatherLeftContainer: {
