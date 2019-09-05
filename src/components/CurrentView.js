@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, Image} from 'react-native';
-import convertTimestamp from '../config/convertTimestamp';
-import images from '../config/images';
+import {convertTimestamp, images} from '../config';
+
 import styles from '../styles';
 
 const CurrentView = props => {
@@ -19,7 +19,7 @@ const CurrentView = props => {
     <TouchableOpacity
       onPress={onPressCurrent}
       style={styles.currentWeatherContainer}>
-      <View style={styles.currentWeatherLeftContainer}>
+      <View style={styles.currentWeatherLeftConainer}>
         <Text style={styles.currentWeatherTextSm}>
           Today, {month} {day}
         </Text>

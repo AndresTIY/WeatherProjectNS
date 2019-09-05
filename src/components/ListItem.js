@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-import convertTimestamp from '../config/convertTimestamp';
-import images from '../config/images';
+import {convertTimestamp, images} from '../config';
 import styles from '../styles';
 
 const ListItem = props => {

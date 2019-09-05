@@ -3,12 +3,14 @@ import {TouchableOpacity, View, Text} from 'react-native';
 
 import styles from '../styles';
 
+const backIcon = '<';
+
 const Header = props => {
   const {onPress} = props;
   return (
-    <View styles={styles.headerContainer}>
+    <View style={styles.headerContainer}>
       <TouchableOpacity onPress={onPress}>
-        <Text>Back</Text>
+        <Text style={styles.headerIcon}> {backIcon} </Text>
       </TouchableOpacity>
     </View>
   );

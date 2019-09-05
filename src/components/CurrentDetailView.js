@@ -1,10 +1,8 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-import convertTimestamp from '../config/convertTimestamp';
-import convertDegree from '../config/convertDegree';
-import images from '../config/images';
+import {convertTimestamp, images, convertDegree} from '../config';
 import styles from '../styles';
-import Header from './Header';
+import {Header} from '.';
 
 const CurrentDetailView = props => {
   const {handleCurrentPress, currentWeather} = props;
@@ -24,14 +22,19 @@ const CurrentDetailView = props => {
   const direction = convertDegree(deg);
 
   return (
-    <View style={styles.f1}>
+    <View style={styles.mainContainer}>
       <Header onPress={handleCurrentPress} />
+
       <View style={styles.currentDetailContainer}>
         <View style={styles.currentDetailLeftContainer}>
-          <Text style={styles.currentDetailWeatherTextSm}>Today</Text>
-          <Text style={styles.currentDetailWeatherTextSm}>
-            {month},{day}
-          </Text>
+          {/* TIME */}
+          <View>
+            <Text style={styles.currentDetailWeatherTextSm}>Today</Text>
+            <Text style={styles.currentDetailWeatherTextSm}>
+              {month},{day}
+            </Text>
+          </View>
+          {/* TEMP */}
           <View style={styles.aCenter}>
             <Text style={styles.currentDetailWeatherTextLrg}>
               {max}
@@ -42,19 +45,22 @@ const CurrentDetailView = props => {
               {degreeSymbol}
             </Text>
           </View>
-          <Text style={styles.currentDetailWeatherTextSm}>
-            Humidity: {humidity}
-          </Text>
-          <Text style={styles.currentDetailWeatherTextSm}>
-            Pressure: {pressure}
-          </Text>
-          <Text style={styles.currentDetailWeatherTextSm}>
-            Wind: {speed} km/hr {direction}
-          </Text>
-          <Text style={styles.currentDetailWeatherTextSm} />
+          {/* DEtAILS */}
+          <View>
+            <Text style={styles.currentDetailWeatherTextSm}>
+              Humidity: {humidity}
+            </Text>
+            <Text style={styles.currentDetailWeatherTextSm}>
+              Pressure: {pressure}
+            </Text>
+            <Text style={styles.currentDetailWeatherTextSm}>
+              Wind: {speed} km/hr {direction}
+            </Text>
+          </View>
         </View>
         <View style={styles.currentDetailRightContainer}>
-          <Image styles={styles.currentWeatherImage} source={images[icon]} />
+          <Image style={styles.currentWeatherImage} source={images[icon]} />
+          <Text style={styles.currentDetailWeatherTextSm}>{current}</Text>
         </View>
       </View>
     </View>

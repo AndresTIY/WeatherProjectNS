@@ -101,26 +101,29 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flexDirection: 'row',
-    backgroundColor: 'green',
-    // paddingLeft: 10,
-    // paddingVertical: 20,
     borderColor: 'black',
-    borderWidth: 1,
-    // flex: 0.5,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    paddingVertical: 10,
+    paddingLeft: 20,
+  },
+  headerIcon: {
+    fontSize: 24,
   },
   currentDetailContainer: {
     flexDirection: 'row',
     marginTop: 25,
+    height: 400,
   },
   currentDetailLeftContainer: {
-    borderColor: 'black',
-    borderWidth: 1,
     flex: 1,
+    justifyContent: 'space-between',
+    paddingLeft: 20,
   },
   currentDetailRightContainer: {
-    borderColor: 'black',
-    borderWidth: 1,
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   currentDetailWeatherTextSm: {
     fontSize: 16,
@@ -134,6 +137,11 @@ const styles = StyleSheet.create({
   currentDetailWeatherTextLrg: {
     fontSize: 60,
     fontFamily: 'Arial',
+  },
+  currentDetailImage: {
+    height: 120,
+    width: 120,
+    resizeMode: 'cover',
   },
 });
 
