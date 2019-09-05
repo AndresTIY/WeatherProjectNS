@@ -17,9 +17,7 @@ const styles = StyleSheet.create({
   aCenter: {
     alignItems: 'center',
   },
-  jContent: {
-    justifyContent: 'center',
-  },
+
   centeredContainer: {
     flex: 1,
     alignItems: 'center',
