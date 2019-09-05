@@ -1,6 +1,6 @@
 import React, {PureComponent, Fragment} from 'react';
 import {View, ActivityIndicator, FlatList} from 'react-native';
-import {CurrentDetailView, CurrentView, ListItem} from '.';
+import {CurrentDetailView, CurrentView, ListItem, DetailView} from '.';
 import {currentWeatherAPI, fiveDayForecastAPI} from '../api/api';
 import styles from '../styles';
 
@@ -10,7 +10,8 @@ class Main extends PureComponent {
     currentWeather: undefined,
     forecast: [],
     showCurrent: false,
-    showDetailed: false,
+    showDetail: false,
+    detailViewItems: [],
   };
 
   componentDidMount() {
@@ -26,13 +27,23 @@ class Main extends PureComponent {
     );
   }
 
+  handleForecastPress = item => {
+    console.log('ITE', item);
+    this.setState(prevState => ({
+      showDetail: !prevState.showDetail,
+      detailViewItems: item ? item : [],
+    }));
+  };
+
   handleCurrentPress = () => {
     this.setState(prevState => ({
       showCurrent: !prevState.showCurrent,
     }));
   };
 
-  _renderItem = ({item}) => <ListItem data={item} />;
+  _renderItem = ({item}) => (
+    <ListItem onPress={() => this.handleForecastPress(item)} data={item} />
+  );
 
   render() {
     const {
@@ -40,7 +51,8 @@ class Main extends PureComponent {
       currentWeather,
       forecast,
       showCurrent,
-      showDetailed,
+      showDetail,
+      detailViewItems,
     } = this.state;
     console.log('forecast', forecast);
     return (
@@ -50,7 +62,7 @@ class Main extends PureComponent {
             <ActivityIndicator size="large" color="#1EA9F6" />
           </View>
         )}
-        {isLoaded && !showCurrent && !showDetailed && (
+        {isLoaded && !showCurrent && !showDetail && (
           <Fragment>
             <CurrentView
               onPressCurrent={this.handleCurrentPress}
@@ -67,6 +79,12 @@ class Main extends PureComponent {
           <CurrentDetailView
             handleCurrentPress={this.handleCurrentPress}
             currentWeather={currentWeather}
+          />
+        )}
+        {showDetail && (
+          <DetailView
+            detailViewItems={detailViewItems}
+            handleForecastPress={this.handleForecastPress}
           />
         )}
       </View>
