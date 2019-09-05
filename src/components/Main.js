@@ -1,6 +1,6 @@
 import React, {PureComponent, Fragment} from 'react';
 import {View, ActivityIndicator, FlatList} from 'react-native';
-import {CurrentDetailView, CurrentView, ListItem, DetailView} from '.';
+import {CurrentDetailView, CurrentView, ListItem} from '.';
 import {currentWeatherAPI, fiveDayForecastAPI} from '../api/api';
 import styles from '../styles';
 
