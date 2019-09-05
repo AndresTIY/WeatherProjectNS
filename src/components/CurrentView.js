@@ -9,6 +9,8 @@ const CurrentView = props => {
   const {main, dt: timestamp, weather} = currentWeather;
   const [{main: current, icon}] = weather;
   const {temp_min, temp_max} = main;
+  const roundIt = {min: Math.round(temp_min), max: Math.round(temp_max)};
+  const {max, min} = roundIt;
 
   const {day, month} = convertTimestamp(timestamp);
   const degreeSymbol = String.fromCharCode(176);
@@ -24,7 +26,7 @@ const CurrentView = props => {
             styles.currentWeatherTextLrg,
             styles.currentWeatherTextPaddingSm,
           ]}>
-          {temp_max}
+          {max}
           {degreeSymbol}
         </Text>
         <Text
@@ -32,7 +34,7 @@ const CurrentView = props => {
             styles.currentWeatherTextMed,
             styles.currentWeatherTextPaddingMed,
           ]}>
-          {temp_min}
+          {min}
           {degreeSymbol}
         </Text>
       </View>

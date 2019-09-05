@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   currentWeatherContainer: {
-    flex: 0.25,
     flexDirection: 'row',
     backgroundColor: colors.blue,
     paddingTop: 20,
@@ -68,7 +67,37 @@ const styles = StyleSheet.create({
   currentWeatherImage: {
     height: 120,
     width: 120,
-    // resizeMode: 'cover',
+  },
+  listItemContainer: {
+    flexDirection: 'row',
+    flex: 0.25,
+    paddingLeft: 20,
+    paddingRight: 30,
+    backgroundColor: colors.offWhite,
+    justifyContent: 'space-between',
+    marginVertical: 20,
+  },
+  listItemImage: {
+    height: 50,
+    width: 50,
+  },
+  listItemLeftContainer: {
+    flexDirection: 'row',
+  },
+  listItemInfoContainer: {
+    justifyContent: 'space-around',
+  },
+  listItemInfoLeftContainer: {
+    justifyContent: 'space-around',
+    paddingLeft: 10,
+  },
+  listItemTextLrg: {
+    fontFamily: 'Arial',
+    fontSize: 16,
+  },
+  listItemTextMed: {
+    fontFamily: 'Arial',
+    fontSize: 12,
   },
 });
 

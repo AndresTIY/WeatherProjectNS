@@ -1,5 +1,6 @@
 const convertTimestamp = timestamp => {
   const date = new Date(timestamp * 1000);
+  console.log('');
   let day = date.getUTCDate();
 
   const monthPairs = {
@@ -17,6 +18,18 @@ const convertTimestamp = timestamp => {
     12: 'December',
   };
   const month = monthPairs[date.getUTCMonth()];
+
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
+  const dayOfWeek = days[date.getDay()];
 
   switch (day) {
     case day >= 11 && day <= 13:
@@ -39,7 +52,7 @@ const convertTimestamp = timestamp => {
       }
   }
 
-  return {month, day};
+  return {month, day, dayOfWeek};
 };
 
 export default convertTimestamp;
