@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-import {convertTimestamp, images, convertDegree} from '../config';
+import {convertTimestamp, images, convertDegree} from '../utils';
 import styles from '../styles';
 import {Header} from '.';
 

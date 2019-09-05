@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, Image} from 'react-native';
-import {convertTimestamp, images} from '../config';
+import {convertTimestamp, images} from '../utils';
 
 import styles from '../styles';
 
