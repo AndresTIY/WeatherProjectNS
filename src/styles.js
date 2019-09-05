@@ -99,6 +99,42 @@ const styles = StyleSheet.create({
     fontFamily: 'Arial',
     fontSize: 12,
   },
+  headerContainer: {
+    flexDirection: 'row',
+    backgroundColor: 'green',
+    // paddingLeft: 10,
+    // paddingVertical: 20,
+    borderColor: 'black',
+    borderWidth: 1,
+    // flex: 0.5,
+  },
+  currentDetailContainer: {
+    flexDirection: 'row',
+    marginTop: 25,
+  },
+  currentDetailLeftContainer: {
+    borderColor: 'black',
+    borderWidth: 1,
+    flex: 1,
+  },
+  currentDetailRightContainer: {
+    borderColor: 'black',
+    borderWidth: 1,
+    flex: 1,
+  },
+  currentDetailWeatherTextSm: {
+    fontSize: 16,
+    fontFamily: 'Arial',
+    fontWeight: 'bold',
+  },
+  currentDetailWeatherTextMed: {
+    fontSize: 30,
+    fontFamily: 'Arial',
+  },
+  currentDetailWeatherTextLrg: {
+    fontSize: 60,
+    fontFamily: 'Arial',
+  },
 });
 
 export default styles;

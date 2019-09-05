@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {TouchableOpacity, View, Text, Image} from 'react-native';
 import convertTimestamp from '../config/convertTimestamp';
 import images from '../config/images';
 import styles from '../styles';
 
 const CurrentView = props => {
-  const {currentWeather} = props;
+  const {currentWeather, onPressCurrent} = props;
   const {main, dt: timestamp, weather} = currentWeather;
   const [{main: current, icon}] = weather;
   const {temp_min, temp_max} = main;
@@ -16,7 +16,9 @@ const CurrentView = props => {
   const degreeSymbol = String.fromCharCode(176);
 
   return (
-    <View style={styles.currentWeatherContainer}>
+    <TouchableOpacity
+      onPress={onPressCurrent}
+      style={styles.currentWeatherContainer}>
       <View style={styles.currentWeatherLeftContainer}>
         <Text style={styles.currentWeatherTextSm}>
           Today, {month} {day}
@@ -42,7 +44,7 @@ const CurrentView = props => {
         <Image style={styles.currentWeatherImage} source={images[icon]} />
         <Text style={styles.currentWeatherTextSm}>{current}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

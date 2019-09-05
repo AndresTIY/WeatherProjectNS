@@ -2,6 +2,7 @@ import React, {PureComponent, Fragment} from 'react';
 import {View, ActivityIndicator, FlatList} from 'react-native';
 import CurrentView from './CurrentView';
 import ListItem from './ListItem';
+import CurrentDetailView from './CurrentDetailView';
 
 import {currentWeatherAPI, fiveDayForecastAPI} from '../api/api';
 import styles from '../styles';
@@ -11,7 +12,7 @@ class Main extends PureComponent {
     isLoaded: false,
     currentWeather: undefined,
     forecast: [],
-    showCurrent: true,
+    showCurrent: false,
     showDetailed: false,
   };
 
@@ -28,6 +29,12 @@ class Main extends PureComponent {
     );
   }
 
+  handleCurrentPress = () => {
+    this.setState(prevState => ({
+      showCurrent: !prevState.showCurrent,
+    }));
+  };
+
   _renderItem = ({item}) => <ListItem data={item} />;
 
   render() {
@@ -41,19 +48,29 @@ class Main extends PureComponent {
     console.log('forecast', forecast);
     return (
       <View style={styles.f1}>
-        {!isLoaded ? (
+        {!isLoaded && (
           <View style={styles.centeredContainer}>
             <ActivityIndicator size="large" color="#1EA9F6" />
           </View>
-        ) : (
+        )}
+        {isLoaded && !showCurrent && !showDetailed && (
           <Fragment>
-            <CurrentView currentWeather={currentWeather} />
+            <CurrentView
+              onPressCurrent={this.handleCurrentPress}
+              currentWeather={currentWeather}
+            />
             <FlatList
               data={forecast}
               extraData={this.state}
               renderItem={this._renderItem}
             />
           </Fragment>
+        )}
+        {showCurrent && (
+          <CurrentDetailView
+            handleCurrentPress={this.handleCurrentPress}
+            currentWeather={currentWeather}
+          />
         )}
       </View>
     );
