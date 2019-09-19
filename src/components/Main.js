@@ -1,10 +1,18 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, {PureComponent, Fragment, useState, useEffect} from 'react';
 import {View, ActivityIndicator, FlatList} from 'react-native';
 import {CurrentDetailView, CurrentView, ListItem} from '.';
 import {currentWeatherAPI, fiveDayForecastAPI} from '../api/api';
 import styles from '../styles';
 
-class Main extends PureComponent {
+const Main = () => {
+  const [isLoaded, setisLoaded] = useState(false)
+  const [currentWeather, setCurrentWeather] = useState(undefined)
+  const [forecast, setForecast] = useState([])
+  const [showCurrent, setShowCurrent] = useState(false)
+  const [showDetail, setShowDetail] = useState(false)
+  const [detailViewItems, setDetailViewItems] = useState([])
+
+// class Main extends PureComponent {
   state = {
     isLoaded: false,
     currentWeather: undefined,
@@ -105,6 +113,7 @@ class Main extends PureComponent {
       </View>
     );
   }
+}
 }
 
 export default Main;
