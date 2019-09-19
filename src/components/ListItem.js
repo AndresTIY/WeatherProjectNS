@@ -5,6 +5,7 @@ import styles from '../styles';
 
 const ListItem = props => {
   const {data, onPress} = props;
+  console.log('d', data);
   const {weather, dt: timestamp, main} = data;
   const [{main: current, icon}] = weather;
   const {dayOfWeek} = convertTimestamp(timestamp);

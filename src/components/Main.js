@@ -18,14 +18,23 @@ class Main extends PureComponent {
     const toFetch = [currentWeatherAPI, fiveDayForecastAPI];
     Promise.all(toFetch.map(item => fetch(item).then(res => res.json()))).then(
       result => {
+        const {list} = result[1];
         this.setState({
           currentWeather: result[0],
-          forecast: result[1].list,
+          forecast: this.changeForecastItem(list),
           isLoaded: true,
         });
       },
     );
   }
+
+  changeForecastItem = list => {
+    let acc = [];
+    list.filter((item, i) => {
+      i % 8 === 0 && i >= 8 && acc.push(item);
+    });
+    return acc;
+  };
 
   handleForecastPress = item => {
     this.setState(prevState => ({
@@ -55,6 +64,9 @@ class Main extends PureComponent {
       showDetail,
       detailViewItems,
     } = this.state;
+
+    console.log('detail', forecast);
+
     return (
       <View style={styles.f1}>
         {!isLoaded && (
@@ -87,6 +99,7 @@ class Main extends PureComponent {
           <CurrentDetailView
             currentWeather={detailViewItems}
             handleCurrentPress={this.handleForecastPress}
+            // isTomorrow={}
           />
         )}
       </View>

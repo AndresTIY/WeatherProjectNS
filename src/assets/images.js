@@ -1,6 +1,7 @@
 const images = {
   '01d': require('../assets/art_clear.png'),
   '03d': require('../assets/art_clouds.png'),
+  '04d': require('../assets/art_clouds.png'),
   '50d': require('../assets/art_fog.png'),
   '02d': require('../assets/art_light_clouds.png'),
   '09d': require('../assets/art_light_rain.png'),
@@ -9,6 +10,7 @@ const images = {
   '11d': require('../assets/art_storm.png'),
   '01n': require('../assets/ic_clear.png'),
   '04n': require('../assets/ic_cloudy.png'),
+  '03n': require('../assets/ic_cloudy.png'),
   '50n': require('../assets/ic_fog.png'),
   '02n': require('../assets/ic_light_clouds.png'),
   '09n': require('../assets/ic_light_rain.png'),
