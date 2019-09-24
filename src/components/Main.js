@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {Fragment, useState, useEffect, useCallback} from 'react';
 import {View, ActivityIndicator, FlatList} from 'react-native';
 import {CurrentDetailView, CurrentView, ListItem} from '.';
 import {currentWeatherAPI, fiveDayForecastAPI} from '../api/api';
@@ -13,10 +13,6 @@ const Main = () => {
   const [detailViewItems, setDetailViewItems] = useState([]);
 
   useEffect(() => {
-    apiCall();
-  }, [apiCall, currentWeather]);
-
-  const apiCall = () => {
     const toFetch = [currentWeatherAPI, fiveDayForecastAPI];
     Promise.all(toFetch.map(item => fetch(item).then(res => res.json()))).then(
       result => {
@@ -26,7 +22,7 @@ const Main = () => {
         setisLoaded(true);
       },
     );
-  };
+  }, []);
 
   const changeForecastItem = list => {
     let acc = [];
